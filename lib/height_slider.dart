@@ -9,13 +9,15 @@ class HeightSlider extends StatefulWidget {
   final int minHeight;
   final int height;
   final ValueChanged<int> onChange;
+  final String personImagePath;
 
   const HeightSlider(
       {Key key,
       @required this.height,
       @required this.onChange,
       this.maxHeight = 190,
-      this.minHeight = 145})
+      this.minHeight = 145,
+      this.personImagePath})
       : super(key: key);
 
   int get totalUnits => maxHeight - minHeight;
@@ -148,11 +150,22 @@ class _HeightSliderState extends State<HeightSlider> {
 
   Widget _drawPersonImage() {
     double personImageHeight = _sliderPosition + 12.0;
+    if (widget.personImagePath == null) {
+      return Align(
+        alignment: Alignment.bottomCenter,
+        child: SvgPicture.asset(
+          "images/person.svg",
+          package: 'height_slider',
+          height: personImageHeight,
+          width: personImageHeight / 3,
+        ),
+      );
+    }
+
     return Align(
       alignment: Alignment.bottomCenter,
       child: SvgPicture.asset(
-        "images/person.svg",
-        package: 'height_slider',
+        widget.personImagePath,
         height: personImageHeight,
         width: personImageHeight / 3,
       ),
