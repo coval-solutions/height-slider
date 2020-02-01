@@ -30,13 +30,14 @@ class _HeightSliderState extends State<HeightSlider> {
   double startDragYOffset;
   int startDragHeight;
   double widgetHeight = 50;
+  double labelFontSize = 12.0;
 
   double get _pixelsPerUnit {
     return _drawingHeight / widget.totalUnits;
   }
 
   double get _sliderPosition {
-    double halfOfBottomLabel = 13.0 / 2;
+    double halfOfBottomLabel = labelFontSize / 2;
     int unitsFromBottom = widget.height - widget.minHeight;
     return halfOfBottomLabel + unitsFromBottom * _pixelsPerUnit;
   }
@@ -45,7 +46,7 @@ class _HeightSliderState extends State<HeightSlider> {
     double totalHeight = this.widgetHeight;
     double marginBottom = 12.0;
     double marginTop = 12.0;
-    return totalHeight - (marginBottom + marginTop + 13.0);
+    return totalHeight - (marginBottom + marginTop + labelFontSize);
   }
 
   @override
@@ -60,6 +61,7 @@ class _HeightSliderState extends State<HeightSlider> {
           onVerticalDragStart: this._onDragStart,
           onVerticalDragUpdate: this._onDragUpdate,
           child: Stack(
+            overflow: Overflow.visible,
             children: <Widget>[
               _drawPersonImage(),
               _drawSlider(),
@@ -84,7 +86,7 @@ class _HeightSliderState extends State<HeightSlider> {
     RenderBox getBox = context.findRenderObject();
     Offset localPosition = getBox.globalToLocal(globalOffset);
     double dy = localPosition.dy;
-    dy = dy - 12.0 - 13.0 / 2;
+    dy = dy - 12.0 - labelFontSize / 2;
     int height = widget.maxHeight - (dy ~/ _pixelsPerUnit);
     return height;
   }
@@ -124,7 +126,7 @@ class _HeightSliderState extends State<HeightSlider> {
           "${widget.maxHeight - 5 * idx}",
           style: TextStyle(
             color: const Color.fromRGBO(216, 217, 223, 1.0),
-            fontSize: 13.0,
+            fontSize: labelFontSize,
           ),
         );
       },
