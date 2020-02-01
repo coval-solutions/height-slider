@@ -1,5 +1,6 @@
 <h1 align="center">Height Slider Widget for Flutter</h1>
 <p align="center">
+  <img src="https://api.codemagic.io/apps/5e1ce39960f072001b53de87/5e1ce39960f072001b53de86/status_badge.svg" />
   <a href="https://pub.dev/packages/height_slider">
     <img alt="Pub Version" src="https://img.shields.io/pub/v/height_slider">
   </a>
