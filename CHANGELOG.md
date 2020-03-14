@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2
+
+  * Added ability to update the numberline color by passing `numberLineColor`
+  * Added ability to update the color of the current height label by passing `currentHeightTextColor`
+
 ## 1.1.1
 
   * Fixed issue with slider and label getting cut off at the top
