@@ -8,8 +8,12 @@ class HeightSlider extends StatefulWidget {
   final int maxHeight;
   final int minHeight;
   final int height;
-  final ValueChanged<int> onChange;
   final String personImagePath;
+  final Color primaryColor;
+  final Color accentColor;
+  final Color numberLineColor;
+  final Color currentHeightTextColor;
+  final ValueChanged<int> onChange;
 
   const HeightSlider(
       {Key key,
@@ -17,6 +21,10 @@ class HeightSlider extends StatefulWidget {
       @required this.onChange,
       this.maxHeight = 190,
       this.minHeight = 145,
+      this.primaryColor,
+      this.accentColor,
+      this.numberLineColor,
+      this.currentHeightTextColor,
       this.personImagePath})
       : super(key: key);
 
@@ -110,7 +118,12 @@ class _HeightSliderState extends State<HeightSlider> {
 
   Widget _drawSlider() {
     return Positioned(
-      child: HeightSliderInteral(height: widget.height),
+      child: HeightSliderInteral(
+          height: widget.height,
+          primaryColor: widget.primaryColor ?? Theme.of(context).primaryColor,
+          accentColor: widget.accentColor ?? Theme.of(context).accentColor,
+          currentHeightTextColor:
+              widget.currentHeightTextColor ?? Theme.of(context).accentColor),
       left: 0.0,
       right: 0.0,
       bottom: _sliderPosition,
@@ -125,7 +138,7 @@ class _HeightSliderState extends State<HeightSlider> {
         return Text(
           "${widget.maxHeight - 5 * idx}",
           style: TextStyle(
-            color: const Color.fromRGBO(216, 217, 223, 1.0),
+            color: widget.numberLineColor ?? Theme.of(context).accentColor,
             fontSize: labelFontSize,
           ),
         );

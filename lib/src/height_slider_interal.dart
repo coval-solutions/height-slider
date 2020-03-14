@@ -2,8 +2,17 @@ import 'package:flutter/material.dart';
 
 class HeightSliderInteral extends StatelessWidget {
   final int height;
+  final Color primaryColor;
+  final Color accentColor;
+  final Color currentHeightTextColor;
 
-  const HeightSliderInteral({Key key, this.height}) : super(key: key);
+  const HeightSliderInteral(
+      {Key key,
+      @required this.height,
+      @required this.primaryColor,
+      @required this.accentColor,
+      @required this.currentHeightTextColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +20,11 @@ class HeightSliderInteral extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SliderLabel(height: height),
+          SliderLabel(height: this.height, currentHeightTextColor: this.currentHeightTextColor),
           Row(
             children: <Widget>[
-              SliderCircle(),
-              Expanded(child: SliderLine()),
+              SliderCircle(primaryColor: this.primaryColor),
+              Expanded(child: SliderLine(primaryColor: this.primaryColor)),
             ],
           ),
         ],
@@ -26,8 +35,11 @@ class HeightSliderInteral extends StatelessWidget {
 
 class SliderLabel extends StatelessWidget {
   final int height;
+  final Color currentHeightTextColor;
 
-  const SliderLabel({Key key, this.height}) : super(key: key);
+  const SliderLabel(
+      {Key key, @required this.height, @required this.currentHeightTextColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +52,7 @@ class SliderLabel extends StatelessWidget {
         "$height",
         style: TextStyle(
           fontSize: 14.0,
-          color: Theme.of(context).primaryColor,
+          color: this.currentHeightTextColor,
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -49,6 +61,10 @@ class SliderLabel extends StatelessWidget {
 }
 
 class SliderLine extends StatelessWidget {
+  final Color primaryColor;
+
+  const SliderLine({Key key, @required this.primaryColor}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -60,9 +76,7 @@ class SliderLine extends StatelessWidget {
                 child: Container(
                   height: 2.0,
                   decoration: BoxDecoration(
-                      color: i.isEven
-                          ? Theme.of(context).primaryColor
-                          : Colors.white),
+                      color: i.isEven ? this.primaryColor : Colors.white),
                 ),
               )),
     );
@@ -70,13 +84,17 @@ class SliderLine extends StatelessWidget {
 }
 
 class SliderCircle extends StatelessWidget {
+  final Color primaryColor;
+
+  const SliderCircle({Key key, @required this.primaryColor}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 32.0,
       height: 32.0,
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColor,
+        color: this.primaryColor,
         shape: BoxShape.circle,
       ),
       child: Icon(
