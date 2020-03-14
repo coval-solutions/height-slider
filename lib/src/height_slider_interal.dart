@@ -5,13 +5,15 @@ class HeightSliderInteral extends StatelessWidget {
   final Color primaryColor;
   final Color accentColor;
   final Color currentHeightTextColor;
+  final Color sliderCircleColor;
 
   const HeightSliderInteral(
       {Key key,
       @required this.height,
       @required this.primaryColor,
       @required this.accentColor,
-      @required this.currentHeightTextColor})
+      @required this.currentHeightTextColor,
+      @required this.sliderCircleColor})
       : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class HeightSliderInteral extends StatelessWidget {
               currentHeightTextColor: this.currentHeightTextColor),
           Row(
             children: <Widget>[
-              SliderCircle(primaryColor: this.primaryColor),
+              SliderCircle(sliderCircleColor: this.sliderCircleColor),
               Expanded(child: SliderLine(primaryColor: this.primaryColor)),
             ],
           ),
@@ -86,9 +88,10 @@ class SliderLine extends StatelessWidget {
 }
 
 class SliderCircle extends StatelessWidget {
-  final Color primaryColor;
+  final Color sliderCircleColor;
 
-  const SliderCircle({Key key, @required this.primaryColor}) : super(key: key);
+  const SliderCircle({Key key, @required this.sliderCircleColor})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +99,7 @@ class SliderCircle extends StatelessWidget {
       width: 32.0,
       height: 32.0,
       decoration: BoxDecoration(
-        color: this.primaryColor,
+        color: this.sliderCircleColor,
         shape: BoxShape.circle,
       ),
       child: Icon(

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.3
+
+  * Added ability to set custom color to the slider circle by passing `sliderCircleColor`
+
 ## 1.1.2
 
   * Added ability to update the numberline color by passing `numberLineColor`
