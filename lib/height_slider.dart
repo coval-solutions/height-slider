@@ -13,6 +13,7 @@ class HeightSlider extends StatefulWidget {
   final Color accentColor;
   final Color numberLineColor;
   final Color currentHeightTextColor;
+  final Color sliderCircleColor;
   final ValueChanged<int> onChange;
 
   const HeightSlider(
@@ -25,6 +26,7 @@ class HeightSlider extends StatefulWidget {
       this.accentColor,
       this.numberLineColor,
       this.currentHeightTextColor,
+      this.sliderCircleColor,
       this.personImagePath})
       : super(key: key);
 
@@ -123,7 +125,9 @@ class _HeightSliderState extends State<HeightSlider> {
           primaryColor: widget.primaryColor ?? Theme.of(context).primaryColor,
           accentColor: widget.accentColor ?? Theme.of(context).accentColor,
           currentHeightTextColor:
-              widget.currentHeightTextColor ?? Theme.of(context).accentColor),
+              widget.currentHeightTextColor ?? Theme.of(context).accentColor,
+          sliderCircleColor:
+              widget.sliderCircleColor ?? Theme.of(context).primaryColor),
       left: 0.0,
       right: 0.0,
       bottom: _sliderPosition,
