@@ -34,5 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
+You can also use your own person SVG, by passing the path through the parameter `personImagePath`.
+
 ## 📝 License
 This project is [MIT](https://raw.githubusercontent.com/coval-solutions/height-slider/master/LICENSE) licensed.

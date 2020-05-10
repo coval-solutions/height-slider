@@ -1,18 +1,19 @@
 name: height_slider
-description: Customisable slider widget for retrieving height.
-version: 1.1.3
+description: Customisable slider widget for retrieving a person's height.
+version: 1.2.0
 homepage: https://covalsolutions.com
 repository: https://github.com/coval-solutions/height-slider
 issue_tracker: https://github.com/coval-solutions/height-slider/issues
 documentation: https://github.com/coval-solutions/height-slider/blob/master/README.md
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.6.7 <2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^0.15.0
+  flutter_svg: ^0.17.4
 
 flutter:
   uses-material-design: true

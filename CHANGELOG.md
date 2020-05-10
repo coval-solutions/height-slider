@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.2.0
+
+  * Added Flutter dependency requirements, `>=1.6.7 <2.0.0`
+  * Updated Dart SDK requirements, from `>=2.1.0 <3.00` to `>=2.7.0 <3.0.0`
+  * Upgrade the `flutter_svg` dependency from, `^0.15.0` to `^0.17.4`
+
 ## 1.1.3
 
   * Added ability to set custom color to the slider circle by passing `sliderCircleColor`
