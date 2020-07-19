@@ -1,0 +1,27 @@
+workflows:
+  development:
+    name: Development
+    max_build_duration: 60
+    environment:
+      flutter: stable
+    cache:
+      cache_paths:
+        - $FCI_BUILD_DIR/build
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: master
+          include: true
+          source: false
+        - pattern: master
+          include: true
+          source: true
+      cancel_previous_builds: true
+    scripts:
+      - flutter packages pub get
+    publishing:
+      slack:
+        channel: "#builds"
+        notify_on_build_start: true
