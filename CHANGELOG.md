@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0
+ * Added Example app for iOS
+ * Upgrade the `flutter_svg` dependency from, `^0.17.4` to `^0.19.1`
+
 ## 1.2.0
 
   * Added Flutter dependency requirements, `>=1.6.7 <2.0.0`
