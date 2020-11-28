@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
-class HeightSliderInteral extends StatelessWidget {
+class HeightSliderInternal extends StatelessWidget {
   final int height;
+  final String unit;
   final Color primaryColor;
   final Color accentColor;
   final Color currentHeightTextColor;
   final Color sliderCircleColor;
 
-  const HeightSliderInteral(
+  const HeightSliderInternal(
       {Key key,
       @required this.height,
+      @required this.unit,
       @required this.primaryColor,
       @required this.accentColor,
       @required this.currentHeightTextColor,
@@ -24,6 +26,7 @@ class HeightSliderInteral extends StatelessWidget {
         children: <Widget>[
           SliderLabel(
               height: this.height,
+              unit: this.unit,
               currentHeightTextColor: this.currentHeightTextColor),
           Row(
             children: <Widget>[
@@ -39,23 +42,23 @@ class HeightSliderInteral extends StatelessWidget {
 
 class SliderLabel extends StatelessWidget {
   final int height;
+  final String unit;
   final Color currentHeightTextColor;
 
   const SliderLabel(
-      {Key key, @required this.height, @required this.currentHeightTextColor})
+      {Key key,
+      @required this.height,
+      @required this.unit,
+      @required this.currentHeightTextColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 4.0,
-        bottom: 2.0,
-      ),
+    return Center(
       child: Text(
-        "$height",
+        "$height $unit",
         style: TextStyle(
-          fontSize: 14.0,
+          fontSize: 16.0,
           color: this.currentHeightTextColor,
           fontWeight: FontWeight.w600,
         ),

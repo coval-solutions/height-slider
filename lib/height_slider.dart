@@ -2,12 +2,13 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:height_slider/src/height_slider_interal.dart';
+import 'package:height_slider/src/height_slider_internal.dart';
 
 class HeightSlider extends StatefulWidget {
   final int maxHeight;
   final int minHeight;
   final int height;
+  final String unit;
   final String personImagePath;
   final Color primaryColor;
   final Color accentColor;
@@ -22,6 +23,7 @@ class HeightSlider extends StatefulWidget {
       @required this.onChange,
       this.maxHeight = 190,
       this.minHeight = 145,
+      this.unit = 'cm',
       this.primaryColor,
       this.accentColor,
       this.numberLineColor,
@@ -120,8 +122,9 @@ class _HeightSliderState extends State<HeightSlider> {
 
   Widget _drawSlider() {
     return Positioned(
-      child: HeightSliderInteral(
+      child: HeightSliderInternal(
           height: widget.height,
+          unit: widget.unit,
           primaryColor: widget.primaryColor ?? Theme.of(context).primaryColor,
           accentColor: widget.accentColor ?? Theme.of(context).accentColor,
           currentHeightTextColor:

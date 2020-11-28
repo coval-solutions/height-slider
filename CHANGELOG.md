@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1
+ * Added ability to set your own unit by passing `unit`, default being `cm`
+ * Increased the font size of the height value and placed it in the centre
+
 ## 1.3.0
  * Added Example app for iOS
  * Upgrade the `flutter_svg` dependency from, `^0.17.4` to `^0.19.1`
