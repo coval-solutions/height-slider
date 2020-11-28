@@ -27,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: HeightSlider(
           height: height,
           onChange: (val) => setState(() => height = val),
+          unit: 'cm', // optional
         ),
       ),
     );
