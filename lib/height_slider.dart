@@ -9,18 +9,18 @@ class HeightSlider extends StatefulWidget {
   final int minHeight;
   final int height;
   final String unit;
-  final String personImagePath;
-  final Color primaryColor;
-  final Color accentColor;
-  final Color numberLineColor;
-  final Color currentHeightTextColor;
-  final Color sliderCircleColor;
+  final String? personImagePath;
+  final Color? primaryColor;
+  final Color? accentColor;
+  final Color? numberLineColor;
+  final Color? currentHeightTextColor;
+  final Color? sliderCircleColor;
   final ValueChanged<int> onChange;
 
   const HeightSlider(
-      {Key key,
-      @required this.height,
-      @required this.onChange,
+      {Key? key,
+      required this.height,
+      required this.onChange,
       this.maxHeight = 190,
       this.minHeight = 145,
       this.unit = 'cm',
@@ -39,8 +39,8 @@ class HeightSlider extends StatefulWidget {
 }
 
 class _HeightSliderState extends State<HeightSlider> {
-  double startDragYOffset;
-  int startDragHeight;
+  late double startDragYOffset;
+  late int startDragHeight;
   double widgetHeight = 50;
   double labelFontSize = 12.0;
 
@@ -73,9 +73,9 @@ class _HeightSliderState extends State<HeightSlider> {
           onVerticalDragStart: this._onDragStart,
           onVerticalDragUpdate: this._onDragUpdate,
           child: Stack(
-            clipBehavior: Clip.none,
+            clipBehavior: Clip.hardEdge,
             children: <Widget>[
-              _drawPersonImage(),
+              _drawPersonImage(constraints.maxWidth),
               _drawSlider(),
               _drawLabels(),
             ],
@@ -95,7 +95,7 @@ class _HeightSliderState extends State<HeightSlider> {
   }
 
   int _globalOffsetToHeight(Offset globalOffset) {
-    RenderBox getBox = context.findRenderObject();
+    RenderBox getBox = context.findRenderObject() as RenderBox;
     Offset localPosition = getBox.globalToLocal(globalOffset);
     double dy = localPosition.dy;
     dy = dy - 12.0 - labelFontSize / 2;
@@ -170,26 +170,34 @@ class _HeightSliderState extends State<HeightSlider> {
     );
   }
 
-  Widget _drawPersonImage() {
+  Widget _drawPersonImage(double maxHeight) {
     double personImageHeight = _sliderPosition + 12.0;
     if (widget.personImagePath == null) {
       return Align(
         alignment: Alignment.bottomCenter,
-        child: SvgPicture.asset(
-          "images/person.svg",
-          package: 'height_slider',
-          height: personImageHeight,
-          width: personImageHeight / 3,
+        child: Container(
+          width: maxHeight,
+          child: SvgPicture.asset(
+            "images/person.svg",
+            package: 'height_slider',
+            fit: BoxFit.contain,
+            height: personImageHeight,
+            width: personImageHeight / 3,
+          ),
         ),
       );
     }
 
     return Align(
       alignment: Alignment.bottomCenter,
-      child: SvgPicture.asset(
-        widget.personImagePath,
-        height: personImageHeight,
-        width: personImageHeight / 3,
+      child: Container(
+        width: maxHeight,
+        child: SvgPicture.asset(
+          widget.personImagePath!,
+          fit: BoxFit.contain,
+          height: personImageHeight,
+          width: personImageHeight / 3,
+        ),
       ),
     );
   }
