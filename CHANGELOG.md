@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.2
+ * Upgraded `flutter_svg` from `0.19.1` to `0.19.3`
+
 ## 1.3.1
  * Added ability to set your own unit by passing `unit`, default being `cm`
  * Increased the font size of the height value and placed it in the centre
