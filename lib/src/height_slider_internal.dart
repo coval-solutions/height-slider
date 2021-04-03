@@ -9,13 +9,13 @@ class HeightSliderInternal extends StatelessWidget {
   final Color sliderCircleColor;
 
   const HeightSliderInternal(
-      {Key key,
-      @required this.height,
-      @required this.unit,
-      @required this.primaryColor,
-      @required this.accentColor,
-      @required this.currentHeightTextColor,
-      @required this.sliderCircleColor})
+      {Key? key,
+      required this.height,
+      required this.unit,
+      required this.primaryColor,
+      required this.accentColor,
+      required this.currentHeightTextColor,
+      required this.sliderCircleColor})
       : super(key: key);
 
   @override
@@ -46,10 +46,10 @@ class SliderLabel extends StatelessWidget {
   final Color currentHeightTextColor;
 
   const SliderLabel(
-      {Key key,
-      @required this.height,
-      @required this.unit,
-      @required this.currentHeightTextColor})
+      {Key? key,
+      required this.height,
+      required this.unit,
+      required this.currentHeightTextColor})
       : super(key: key);
 
   @override
@@ -70,7 +70,7 @@ class SliderLabel extends StatelessWidget {
 class SliderLine extends StatelessWidget {
   final Color primaryColor;
 
-  const SliderLine({Key key, @required this.primaryColor}) : super(key: key);
+  const SliderLine({Key? key, required this.primaryColor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -93,7 +93,7 @@ class SliderLine extends StatelessWidget {
 class SliderCircle extends StatelessWidget {
   final Color sliderCircleColor;
 
-  const SliderCircle({Key key, @required this.sliderCircleColor})
+  const SliderCircle({Key? key, required this.sliderCircleColor})
       : super(key: key);
 
   @override

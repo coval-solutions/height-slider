@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0-nullsafety
+
+* Initial release with null safety
+
 ## 1.3.2
  * Upgraded `flutter_svg` from `0.19.1` to `0.19.3`
 
