@@ -73,7 +73,7 @@ class _HeightSliderState extends State<HeightSlider> {
           onVerticalDragStart: this._onDragStart,
           onVerticalDragUpdate: this._onDragUpdate,
           child: Stack(
-            overflow: Overflow.visible,
+            clipBehavior: Clip.none,
             children: <Widget>[
               _drawPersonImage(),
               _drawSlider(),
