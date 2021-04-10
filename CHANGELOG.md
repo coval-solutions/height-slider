@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0-nullsafety+1
+
+* Fixed issue with current height slider label being clipped
+
 ## 1.4.0-nullsafety
 
 * Initial release with null safety

@@ -73,7 +73,7 @@ class _HeightSliderState extends State<HeightSlider> {
           onVerticalDragStart: this._onDragStart,
           onVerticalDragUpdate: this._onDragUpdate,
           child: Stack(
-            clipBehavior: Clip.hardEdge,
+            clipBehavior: Clip.none,
             children: <Widget>[
               _drawPersonImage(constraints.maxWidth),
               _drawSlider(),
@@ -170,13 +170,14 @@ class _HeightSliderState extends State<HeightSlider> {
     );
   }
 
-  Widget _drawPersonImage(double maxHeight) {
+  Widget _drawPersonImage(double maxWidth) {
     double personImageHeight = _sliderPosition + 12.0;
     if (widget.personImagePath == null) {
       return Align(
         alignment: Alignment.bottomCenter,
         child: Container(
-          width: maxHeight,
+          width: maxWidth,
+          height: personImageHeight,
           child: SvgPicture.asset(
             "images/person.svg",
             package: 'height_slider',
@@ -191,7 +192,8 @@ class _HeightSliderState extends State<HeightSlider> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        width: maxHeight,
+        width: maxWidth,
+        height: personImageHeight,
         child: SvgPicture.asset(
           widget.personImagePath!,
           fit: BoxFit.contain,

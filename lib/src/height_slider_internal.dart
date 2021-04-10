@@ -25,9 +25,10 @@ class HeightSliderInternal extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SliderLabel(
-              height: this.height,
-              unit: this.unit,
-              currentHeightTextColor: this.currentHeightTextColor),
+            height: this.height,
+            unit: this.unit,
+            currentHeightTextColor: this.currentHeightTextColor,
+          ),
           Row(
             children: <Widget>[
               SliderCircle(sliderCircleColor: this.sliderCircleColor),
